@@ -1,0 +1,67 @@
+
+
+ Feature: Login 
+#Scenario: Login successful
+@StepDef
+@Context
+Scenario: I navigate to "http://visualanalytics.kloon.vn:96/login"
+          
+		Given I start a new browser
+		When I navigate to "http://visualanalytics.kloon.vn:96/login"
+		And I maximize the window
+		Then the page title should be "Visual Analytic"
+	 
+
+@StepDef
+@Action
+Scenario: I login to Visual Analytic page 
+
+		Given usernameValue can be located by css selector "input#login-username" 
+		And passwordValue can be located by css selector "input#login-password" 
+		And signInBtn can be located by css selector "button#btnSignIn"
+		When I type "Khoict" in usernameValue
+		And I type "12345678a@" in passwordValue
+	 	And I click signInBtn
+		
+@StepDef
+@Assertion
+Scenario: I should Login successful 
+	Given caseNameBtn can be located by css selector "dx-button#CaseManagement  .dx-button-text"
+
+#Scenario: Login unsuccessful when fields is blank 
+@StepDef
+@Context
+Scenario: I navigate to "http://visualanalytics.kloon.vn:96/login" 1
+          
+		Given I start a new browser
+		When I navigate to "http://visualanalytics.kloon.vn:96/login"
+		And I maximize the window
+		Then the page title should be "Visual Analytic"
+@StepDef
+@Action
+Scenario: I enter blank in fields
+
+		Given signInBtn1 can be located by css selector "button#btnSignIn"
+		When I click signInBtn1
+@StepDef
+@Assertion
+Scenario: I should Login unsuccessful 
+		Given messageError can be located by css selector ".alert.alert-danger.mb-0.mt-3"
+
+#Scenario: Login unsuccessful when input invalid value 
+@StepDef
+@Action
+Scenario: I enter invalid value in fields
+		Given usernameValue1 can be located by css selector "input#login-username" 
+		And passwordValue1 can be located by css selector "input#login-password" 
+		And signInBtn2 can be located by css selector "button#btnSignIn"
+		When I type "hahaha" in usernameValue1
+		And I type "12shshsa@" in passwordValue1
+	 	And I click signInBtn2
+@StepDef
+@Assertion
+Scenario: I should Login unsuccessful when input invalid value 
+		Given messageError can be located by css selector ".alert.alert-danger.mb-0.mt-3"
+ 
+
+	   

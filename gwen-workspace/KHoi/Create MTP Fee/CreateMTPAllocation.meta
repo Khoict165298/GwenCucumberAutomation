@@ -1,0 +1,26 @@
+		Given mtpYDrp2C can be located by css selector "[class='dx-first-row dx-first-col dx-field-item dx-col-0 dx-field-item-optional dx-flex-layout'] [aria-haspopup]"
+		And 2024Value2C can be located by css selector "div:nth-of-type(7) > .dx-item-content.dx-list-item-content"
+		And budY can be located by css selector "div:nth-of-type(1) > .dx-box.dx-box-flex.dx-box-item-content.dx-collection.dx-item-content.dx-visibility-change-handler.dx-widget > div:nth-of-type(2) > .dx-box-item-content.dx-item-content .dx-dropdowneditor.dx-dropdowneditor-button-visible.dx-dropdowneditor-field-clickable.dx-editor-outlined.dx-selectbox.dx-show-invalid-badge.dx-textbox div[role='button']  .dx-dropdowneditor-icon"
+		And bud25Value2C can be located by css selector ".dx-dropdownlist-popup-wrapper.dx-popup-wrapper.dx-selectbox-popup-wrapper  .dx-popup-content > div[role='listbox'] .dx-scrollview-content > div:nth-of-type(1) > .dx-item-content.dx-list-item-content"
+		And fundDrpC can be located by css selector "dx-drop-down-box#fundId > .dx-dropdowneditor-input-wrapper div[role='button']  .dx-dropdowneditor-icon"
+		And srFund2CreateC can be located by css selector "td:nth-of-type(2) input[role='textbox']"
+		And resultF2CrC can be located by css selector "div:nth-of-type(6) table[role='presentation'] > tbody[role='presentation'] > tr[role='row'] > td:nth-of-type(2)"
+		And AssetMUDrp can be located by css selector "[valueexpr='value'] .dx-dropdowneditor-icon"
+		And valueAsset can be located by css selector ".dx-dropdownlist-popup-wrapper.dx-popup-wrapper.dx-selectbox-popup-wrapper  .dx-popup-content > div[role='listbox'] .dx-scrollview-content > div:nth-of-type(2) > .dx-item-content.dx-list-item-content"
+		And saveCreateFund2C can be located by css selector "div#save-button > .dx-button-content"
+		When I navigate to "https://d-we-ipt-01-webapp.azurewebsites.net/fee-absolute/create"
+		And I maximize the window
+		And I click mtpYDrp2C
+		And I click 2024Value2C
+		And I click budY
+		And I click bud25Value2C
+		And I click fundDrpC
+		And I click srFund2CreateC
+		And I type "Reatail E2" in srFund2CreateC
+		And I wait 3 seconds
+		And I click resultF2CrC
+		And I click AssetMUDrp
+		And I click valueAsset
+		And I wait 3 seconds
+		And I click saveCreateFund2C
+		And I wait 2 seconds

@@ -1,0 +1,27 @@
+Feature: Test Login function DropBox 
+#https://www.dropbox.com/login  
+		Scenario: Create an acount of DropBox
+			Given Open DropBox Login screen
+			When I click create an acount link 
+			And I input valid data into requird fiels
+			And I click confirm check box
+			And I click create an acount button
+			Then New an acount created
+		Scenario: Check Login successfully
+			Given Open DropBox Login screen
+			When I input valid data into the Email fiel
+			And I input valid data into the Password fiel
+			And I click Sign in button
+			Then The Homepage screen displayed
+		Scenario: Check Login unsuccessfully when input invalid data
+			Given Open DropBox Login screen
+			When I input invalid data into the Email fiel
+			And I input invalid data into the Password fiel
+			And I click Sign in button
+			Then The error invalid message displayed
+		Scenario: Check Login unsuccessfully when input wrong format Email
+			Given Open DropBox Login screen
+			When I input wrong format Email
+			And I input valid data into the Password fiel
+			And I click Sign in button
+			Then The error wrong format Email message displayed

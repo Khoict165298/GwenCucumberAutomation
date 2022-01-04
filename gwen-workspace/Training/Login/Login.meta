@@ -1,0 +1,95 @@
+Feature: Test Login function DropBox 
+#Scenario: Create an acount of DropBox
+@StepDef
+@Context
+Scenario: I Open DropBox Login screen
+		Given I start a new browser
+		When I navigate to "https://www.dropbox.com/login?cont=https%3A%2F%2Fwww.dropbox.com%2Fh" 
+  	    And I maximize the window
+@StepDef
+@Action
+Scenario: I click create an acount link
+		Given createAcountLink can be located by css selector ".current-form.login-register-login-part.login-register-part > .clearfix > .login-register-switch > .login-register-switch-link.mc-button-styleless > .mc-button-content"
+		When I click createAcountLink
+@StepDef
+@Action
+Scenario: I input valid data into requird fields
+		Given firstNameCreate can be located by css selector "input[name='fname']"
+		And lastNameCreate can be located by css selector "input[name='lname']"
+		And emailCreate can be located by css selector "input[name='email']"
+		And passwordCreate can be located by css selector "input[name='password']"
+		When I click firstNameCreate
+		And I type "Khoi Khoi" in firstNameCreate
+		And I click lastNameCreate
+		And I type "Tieu" in lastNameCreate
+		And I click emailCreate
+		And I type "Tieukhoikhoi@gmail.com" in emailCreate
+		And I click passwordCreate
+		And I type "tieukhoikhoi20041998" in passwordCreate
+@StepDef
+@Action
+Scenario: I click confirm check box
+		Given confirmBoxCreate can be located by css selector "input[name='tos_agree']"
+		When I click confirmBoxCreate
+@StepDef
+@Action
+Scenario: I click create an acount button
+		Given createBtn can be located by css selector "form[method='post'] > .button-primary.login-button"
+		And agreeBtn can be located by css selector "div:nth-of-type(1) > .trial-card__content  .trial-first__start-trial-link  .dig-Button-content"
+		And logoBtn can be located by css selector ".maestro-nav__home-button > svg[role='img']" 
+		When I click createBtn
+		And I click agreeBtn
+		And I wait 3 seconds
+		And I click logoBtn
+@StepDef
+@Assertion
+Scenario: New an acount created
+		Given checkBtn can be located by css selector ".maestro-nav__home-button > svg[role='img']"
+		When checkBtn should be displayed
+#Scenario: Check Login successfully
+@StepDef
+@Action
+Scenario: I input valid data into the Email field
+		Given emailBox can be located by css selector "input[name='login_email']"
+		When I click emailBox
+		And I type "Tieukhoikhoi@gmail.com" in emailBox
+@StepDef
+@Action
+Scenario: I input valid data into the Password field
+		Given passwordBox can be located by css selector "input[name='login_password']"
+		When I click passwordBox
+		And I type "tieukhoikhoi20041998" in passwordBox
+@StepDef
+@Action
+Scenario: I click Sign in button
+		Given signInBtn can be located by css selector ".button-primary.login-button.signin-button > .signin-text"
+		When I click signInBtn
+@StepDef
+@Assertion
+Scenario: The Homepage screen displayed
+		Given checkBtn1 can be located by css selector ".maestro-nav__home-button > svg[role='img']"
+		When checkBtn1 should be displayed
+#Scenario: Check Login unsuccessful when empty the Email field
+@StepDef
+@Assertion
+Scenario: The error message of Email field displayed
+		Given errorMess can be located by css selector ".error-message"
+		When errorMess should be displayed
+#Scenario: Check Login unsuccessful when empty the Password field
+@StepDef
+@Assertion
+Scenario: The error message of Password field displayed
+		Given errorMess1 can be located by css selector ".error-message"
+		When errorMess1 should be displayed
+#Scenario: Check format warning of Email fieldd
+@StepDef
+@Action
+Scenario: I input worng data format into the Email field
+		Given emailBox1 can be located by css selector "input[name='login_email']"
+		When I click emailBox1
+		And I type "Tieukhoikhoigmail.com" in emailBox
+@StepDef
+@Assertion
+Scenario: The format warning displayed
+		Given warning can be located by css selector "div#login-or-register-page-content"
+		When errorMess should be displayed

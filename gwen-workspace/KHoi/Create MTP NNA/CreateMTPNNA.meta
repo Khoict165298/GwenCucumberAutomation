@@ -1,0 +1,94 @@
+Given I navigate to "https://d-we-ipt-01-webapp.azurewebsites.net/budget/index"
+          And I maximize the window
+        And addItemButton can be located by id "add-button"
+        And mtpYr can be located by id "mtpYear"
+        And budYr can be located by id "budYear"
+        And fund can be located by id "fundId"
+        And searchFundName can be located by css selector "td:nth-of-type(2) input[role='textbox']"
+        And searchFundNameValue can be located by css selector ".dx-popup-content  dx-data-grid[role='presentation'] > div[role='grid'] > div:nth-of-type(6) table[role='presentation'] > tbody[role='presentation'] > tr:nth-of-type(1) > td:nth-of-type(2)"
+        And assetLocation can be located by id "assetLocationId"
+        And assetManagerUnit can be located by id "assetManagerUnit"
+        And inNNADirect can be located by id "inDirect"
+        And inNNADebt can be located by id "inDebt"
+        And inNNAPAMCHRemit can be located by id "inPAMCHRemitCapital"
+        And inNNAPAMCHInvestm can be located by id "inPAMCHInvestm"
+        And inNNAPAMFRRemit can be located by id "inPAMFRRemitCapital"
+        And inNNAPAMFRInvestm can be located by id "inPAMFRInvestm"
+        And inNNAPAMDEInvestm can be located by id "inPAMDEInvestm"
+        And nnaSalesCommit can be located by id "inSaleCommittment"
+        And acquisitions can be located by id "inAcquisitions"
+        And revaluation can be located by id "inRevaluation"
+        And construction can be located by id "inConstruction"
+        And otherAssets can be located by id "inOtherAssets"
+        And outNNADirect can be located by id "outDirect"
+        And outNNADebt can be located by id "outDebt"
+        And outNNAPAMCHRemit can be located by id "outPAMCHRemitCapital"
+        And outNNAPAMCHInvestm can be located by id "outPAMCHInvestm"
+        And outNNAPAMFRRemit can be located by id "outPAMFRRemitCapital"
+        And outNNAPAMFRInvestm can be located by id "outPAMFRInvestm"
+        And outNNAPAMDEInvestm can be located by id "outPAMDEInvestm"
+        And disposal can be located by id "outDisposals"
+        And otherAssets2 can be located by id "outOtherAssets"
+#Get value for dropdown
+        And mtpYrValue can be located by css selector ".dx-dropdownlist-popup-wrapper.dx-popup-wrapper.dx-selectbox-popup-wrapper  .dx-popup-content > div[role='listbox'] .dx-scrollview-content > div:nth-of-type(2) > .dx-item-content.dx-list-item-content"
+        And budYrValue can be located by css selector ".dx-dropdownlist-popup-wrapper.dx-popup-wrapper.dx-selectbox-popup-wrapper  .dx-popup-content > div[role='listbox'] .dx-scrollview-content > div:nth-of-type(1) > .dx-item-content.dx-list-item-content"
+        And assetLocationValue can be located by css selector ".dx-dropdownlist-popup-wrapper.dx-popup-wrapper.dx-selectbox-popup-wrapper  .dx-popup-content > div[role='listbox'] .dx-scrollview-content > div:nth-of-type(1) > .dx-item-content.dx-list-item-content"
+        And assetManagerValue can be located by css selector ".dx-dropdownlist-popup-wrapper.dx-popup-wrapper.dx-selectbox-popup-wrapper  .dx-popup-content > div[role='listbox'] .dx-scrollview-content > div:nth-of-type(1) > .dx-item-content.dx-list-item-content"
+        When I click addItemButton
+        And I click mtpYr
+        And I click mtpYrValue
+        And I click budYr
+        And I click budYrValue
+        And I press tab in budYr
+        And I click fund
+        And I click searchFundName
+        And I type "Germany Slam Lux 1" in searchFundName
+        And I click searchFundNameValue
+        And I click assetLocation
+        And I click assetLocationValue
+        And I click assetManagerUnit
+        And I click assetManagerValue
+        And I click inNNADirect
+        And I type "61" in inNNADirect
+        And I click inNNADebt
+        And I type "62" in inNNADebt
+        And I click inNNAPAMCHRemit
+        And I type "63" in inNNAPAMCHRemit
+        And I click inNNAPAMCHInvestm
+        And I type "64" in inNNAPAMCHInvestm
+        And I click inNNAPAMFRRemit
+        And I type "65" in inNNAPAMFRRemit       
+        And I click inNNAPAMFRInvestm
+        And I type "66" in inNNAPAMFRInvestm
+        And I click inNNAPAMDEInvestm
+        And I type "67" in inNNAPAMDEInvestm
+        And I click nnaSalesCommit
+        And I type "1" in nnaSalesCommit
+        And I click acquisitions
+        And I type "85" in acquisitions
+        And I click revaluation
+        And I type "125" in revaluation
+        And I click construction
+        And I type "120" in construction
+        And I click otherAssets
+        And I type "118" in otherAssets
+#Get value for dropdown
+        And I click outNNADirect
+        And I type "21" in outNNADirect
+        And I click outNNADebt
+        And I type "22" in outNNADebt
+        And I click outNNAPAMCHRemit
+        And I type "23" in outNNAPAMCHRemit
+        And I click outNNAPAMCHInvestm
+        And I type "24" in outNNAPAMCHInvestm
+        And I click outNNAPAMFRRemit
+        And I type "25" in outNNAPAMFRRemit       
+        And I click outNNAPAMFRInvestm
+        And I type "26" in outNNAPAMFRInvestm
+        And I click outNNAPAMDEInvestm
+        And I type "27" in outNNAPAMDEInvestm
+        And I click disposal
+        And I type "28" in disposal
+        And I click otherAssets2
+        And I type "140" in otherAssets2
+        And I press tab in otherAssets2

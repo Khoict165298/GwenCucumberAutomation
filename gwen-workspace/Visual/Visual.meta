@@ -1,0 +1,28 @@
+
+
+ Feature: Login 
+#Scenario: Login successful
+@StepDef
+@Context
+Scenario: I navigate to "http://visualanalytics.kloon.vn:96/login"
+          
+		Given I start a new browser
+		When I navigate to "https://app-platonl-chn.azurewebsites.net/login"
+		And I maximize the window
+	 
+
+@StepDef
+@Action
+Scenario: I login to Visual Analytic page 
+
+		Given usernameValue can be located by xpath "/html//div[@id='accountName']//input[@name='id771fe523-569a-412e-84b6-679d836ec678']" 
+		And passwordValue can be located by xpath "/html//div[@id='password']//input[@name='idf27cd275-9d2d-47fb-9748-5982ba5c3acb']" 
+		And signInBtn can be located by css selector "button#btn-submit"
+		When I type "Khoict" in usernameValue
+		And I type "12345678a@" in passwordValue
+	 	And I click signInBtn
+		
+@StepDef
+@Assertion
+Scenario: I should Login successful 
+

@@ -1,0 +1,60 @@
+		Given I navigate to "https://d-we-ipt-01-webapp.azurewebsites.net/allocation/create"
+        And I maximize the window
+		And I wait 5 seconds
+        And mtpYear can be located by css selector "dx-select-box#mtpYear > .dx-dropdowneditor-input-wrapper.dx-selectbox-container input[role='combobox']"
+#2019
+		And mtpYearValue2019 can be located by css selector ".dx-dropdownlist-popup-wrapper.dx-popup-wrapper.dx-selectbox-popup-wrapper  .dx-popup-content > div[role='listbox'] .dx-scrollview-content > div:nth-of-type(2) > .dx-item-content.dx-list-item-content"
+ 		And mtpYearValue2020 can be located by css selector "div:nth-of-type(2) > .dx-item-content.dx-list-item-content"
+		And mtpYearValue2021 can be located by css selector ".dx-dropdownlist-popup-wrapper.dx-popup-wrapper.dx-selectbox-popup-wrapper  .dx-popup-content > div[role='listbox'] .dx-scrollview-content > div:nth-of-type(2) > .dx-item-content.dx-list-item-content"
+		And fundValue can be located by css selector "dx-drop-down-box#fundId > .dx-dropdowneditor-input-wrapper input[role='combobox']"
+        And searchFundName can be located by css selector "td:nth-of-type(2) input[role='textbox']"
+        And searchFundNameValue can be located by xpath "//body/div//div[@class='dx-popup-content']//dx-data-grid[@role='presentation']/div[@role='grid']/div[6]//table[@role='presentation']/tbody[@role='presentation']/tr[1]/td[2]"
+        And ltvValue can be located by css selector "dx-number-box#ltv input[role='spinbutton']"
+        And MgmtValue can be located by css selector "div#mgmtFee input[role='spinbutton']"
+        And acquisValue can be located by css selector "div#acquisFee input[role='spinbutton']"
+        And dispValue can be located by css selector "div#dispFee input[role='spinbutton']"
+        And reSector1 can be located by css selector "div#reSector1 input[role='combobox']"
+        And reSector1Value can be located by css selector ".dx-dropdownlist-popup-wrapper.dx-popup-wrapper.dx-selectbox-popup-wrapper  .dx-popup-content > div[role='listbox'] .dx-scrollview-content > div:nth-of-type(2) > .dx-item-content.dx-list-item-content"
+        And reSector1Percent can be located by css selector "div#reSector1Val input[role='spinbutton']"   
+        And reSector2 can be located by id "reSector2"
+        And reSector2Value can be located by css selector ".dx-dropdownlist-popup-wrapper.dx-popup-wrapper.dx-selectbox-popup-wrapper  .dx-popup-content > div[role='listbox'] .dx-scrollview-content > div:nth-of-type(2) > .dx-item-content.dx-list-item-content"
+        And reSector2Percent can be located by css selector "div#reSector2Val input[role='spinbutton']"      
+        And reSector3 can be located by id "reSector3"
+        And reSector3Value can be located by css selector ".dx-dropdownlist-popup-wrapper.dx-popup-wrapper.dx-selectbox-popup-wrapper  .dx-popup-content > div[role='listbox'] .dx-scrollview-content > div:nth-of-type(2) > .dx-item-content.dx-list-item-content"
+        And reSector3Percent can be located by css selector "div#reSector3Val input[role='spinbutton']"
+        And reSector4 can be located by id "reSector4"
+        And reSector4Value can be located by css selector ".dx-dropdownlist-popup-wrapper.dx-popup-wrapper.dx-selectbox-popup-wrapper  .dx-popup-content > div[role='listbox'] .dx-scrollview-content > div:nth-of-type(2) > .dx-item-content.dx-list-item-content"
+        And reSector4Percent can be located by css selector "div#reSector4Val input[role='spinbutton']"
+        And byCH can be located by css selector "div#distByCH input[role='spinbutton']"
+        And byDE can be located by css selector "div#distByDE input[role='spinbutton']"
+        And byFR can be located by css selector "div#distByFr input[role='spinbutton']"
+        And byGB can be located by css selector "div#distByGb input[role='spinbutton']"
+        And byInt can be located by css selector "div#distByInt input[role='spinbutton']"
+        And byExternal can be located by css selector "div#distByExternal input[role='spinbutton']"
+        And mMgtFeeSplit can be located by id "mgmtFeeSplit"
+		And saveButton can be located by css selector "div#save-button  .dx-button-text"
+        And searchPresetName can be located by css selector "[data-bind] [aria-selected='false']:nth-of-type(1) .dx-texteditor-input"
+        And searchPresetNameValue can be located by xpath "//body/div//div[@class='dx-popup-content']//dx-data-grid[@role='presentation']/div[@role='grid']/div[6]//table[@role='presentation']/tbody[@role='presentation']/tr[1]/td[1]"
+        And feeSplitDrp can be located by css selector "dx-drop-down-box#mgmtFeeSplit > .dx-dropdowneditor-input-wrapper div[role='button']  .dx-dropdowneditor-icon"
+		And feeSplitValue can be located by css selector "[data-bind] [role='row']:nth-of-type(1) [aria-describedby='dx-col-7']"
+#Action:		
+		And I click mtpYear
+        And I click mtpYearValue2020
+        And I click fundValue
+        And I click searchFundName
+        And I type "Swiss Life check PAM direct fund 01" in searchFundName
+		And I wait 4 seconds
+        And I click searchFundNameValue
+        And I type "0.1" in ltvValue
+        And I type "0.65" in MgmtValue
+        And I type "0.2" in acquisValue
+        And I type "0.3" in dispValue
+        And I click reSector1
+        And I click reSector1Value
+        And I type "100" in reSector1Percent
+        And I type "100" in byCH
+		And I click feeSplitDrp
+		And I click feeSplitValue
+		And I wait 3 seconds
+		And I click saveButton
+		And I wait 5 seconds

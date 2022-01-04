@@ -1,0 +1,76 @@
+#Given:		
+		Given I navigate to "https://d-we-ipt-01-webapp.azurewebsites.net/fund/create"
+		And I maximize the window
+		And I wait 6 seconds
+		And nameText can be located by css selector "#nameId input[role='textbox']"
+		And codeText can be located by css selector "#codeId input[role='textbox']"
+		And FundMUDrp can be located by css selector "#fundMgrUnitArea .dx-dropdowneditor-icon"
+		And PortMU can be located by css selector "#portfolioManagerUnitId .dx-dropdowneditor-icon"
+		And fundDomicile can be located by id "fundDomicileId"
+		And fundCurrency can be located by id "fundCurrencyId"
+		And launchDate can be located by css selector "#launchDateId [aria-haspopup]"
+		And closingDate can be located by css selector "#closingDateId [aria-haspopup]"
+		And businessLine can be located by css selector "#businessLineId [aria-haspopup]"
+		And assetClass can be located by css selector "#assetClassId [aria-haspopup]"
+		And clientType can be located by css selector "#clientTypeId [aria-haspopup]"
+        And productType can be located by css selector "#productTypeId [aria-haspopup]"
+		And productCategory can be located by css selector "#productCategoryREId [aria-haspopup]"
+        And predominant can be located by css selector "#predominantRESectorId [aria-haspopup]"
+		And region can be located by css selector "#regionId [aria-haspopup]"
+		And portfolioManagerPerson can be located by css selector "#pm-name input[role='textbox']"		
+		And portfolioManagerEmail can be located by css selector "#pm-email input[role='textbox']"
+		And ruCode can be located by css selector "#ruCodeId [type]"
+		And fundCon can be located by css selector "dx-check-box#fundConsolidationCheckbox  .dx-checkbox-icon"
+		And active can be located by css selector "dx-check-box#active-fund  .dx-checkbox-icon"
+		And saveBtn can be located by id "saveBtn"
+#Get value for dropdown:
+		And directPAM can be located by css selector ".dx-dropdownlist-popup-wrapper.dx-popup-wrapper.dx-selectbox-popup-wrapper  .dx-popup-content > div[role='listbox'] .dx-scrollview-content > div:nth-of-type(3) > .dx-item-content.dx-list-item-content"
+		And slamDE can be located by css selector ".dx-dropdownlist-popup-wrapper.dx-popup-wrapper.dx-selectbox-popup-wrapper  .dx-popup-content > div[role='listbox'] .dx-scrollview-content > div:nth-of-type(7) > .dx-item-content.dx-list-item-content"
+		And fundDomicileValue can be located by css selector ".dx-dropdownlist-popup-wrapper.dx-popup-wrapper.dx-selectbox-popup-wrapper  .dx-popup-content > div[role='listbox'] .dx-scrollview-content > div:nth-of-type(2) > .dx-item-content.dx-list-item-content"
+		And fundCurrencyValue can be located by css selector ".dx-dropdownlist-popup-wrapper.dx-popup-wrapper.dx-selectbox-popup-wrapper  .dx-popup-content > div[role='listbox'] .dx-scrollview-content > div:nth-of-type(2) > .dx-item-content.dx-list-item-content"
+		And launchDateValue can be located by css selector ".dx-calendar-today span"
+		And businessLinevalue can be located by css selector ".dx-dropdownlist-popup-wrapper.dx-popup-wrapper.dx-selectbox-popup-wrapper  .dx-popup-content > div[role='listbox'] .dx-scrollview-content > div:nth-of-type(1) > .dx-item-content.dx-list-item-content"
+		And assetClassValue can be located by css selector ".dx-dropdownlist-popup-wrapper.dx-popup-wrapper.dx-selectbox-popup-wrapper  .dx-popup-content > div[role='listbox'] .dx-scrollview-content > div:nth-of-type(2) > .dx-item-content.dx-list-item-content"
+		And clientTypeValue can be located by css selector ".dx-dropdownlist-popup-wrapper.dx-popup-wrapper.dx-selectbox-popup-wrapper  .dx-popup-content > div[role='listbox'] .dx-scrollview-content > div:nth-of-type(2) > .dx-item-content.dx-list-item-content"
+		And productTypeValue can be located by css selector ".dx-dropdownlist-popup-wrapper.dx-popup-wrapper.dx-selectbox-popup-wrapper  .dx-popup-content > div[role='listbox'] .dx-scrollview-content > div:nth-of-type(2) > .dx-item-content.dx-list-item-content"
+		And productCategoryValue can be located by css selector ".dx-dropdownlist-popup-wrapper.dx-popup-wrapper.dx-selectbox-popup-wrapper  .dx-popup-content > div[role='listbox'] .dx-scrollview-content > div:nth-of-type(2) > .dx-item-content.dx-list-item-content"
+		And predominantValue can be located by css selector ".dx-dropdownlist-popup-wrapper.dx-popup-wrapper.dx-selectbox-popup-wrapper  .dx-popup-content > div[role='listbox'] .dx-scrollview-content > div:nth-of-type(3) > .dx-item-content.dx-list-item-content"
+		And regionValue can be located by css selector ".dx-dropdownlist-popup-wrapper.dx-popup-wrapper.dx-selectbox-popup-wrapper  .dx-popup-content > div[role='listbox'] .dx-scrollview-content > div:nth-of-type(2) > .dx-item-content.dx-list-item-content"
+#Action:		
+		When I click nameText
+		And I enter "Swiss check PAM direct ACT/FC NNA" in nameText
+		And I enter "DirectPAMACT01" in codeText
+		And I click FundMUDrp
+		And I click directPAM
+		And I click PortMU
+		And I click slamDE
+		And I click fundDomicile
+		And I click fundDomicileValue
+		And I click fundCurrency
+		And I click fundCurrencyValue
+		And I type "02.10.2019" in launchDate
+		And I type "05.06.2023" in closingDate
+		And I click businessLine
+		And I click businessLinevalue	
+		And I click assetClass
+		And I click assetClassValue
+		And I click clientType
+		And I click clientTypeValue
+		And I click productType
+		And I click productTypeValue
+		And I click productCategory
+		And I click productCategoryValue
+		And I click predominant
+		And I click predominantValue
+		And I click region
+		And I click regionValue
+		And I click portfolioManagerPerson
+		And I type "Portfolio Manager Person 1" in portfolioManagerPerson
+		And I click portfolioManagerEmail
+		And I type "Portfolio.Manager1@swisslife.ch" in portfolioManagerEmail
+		And I press tab in portfolioManagerEmail
+		And I check fundCon
+		And I check active
+		And I wait 3 seconds
+		And I click saveBtn
+		And I wait 4 seconds

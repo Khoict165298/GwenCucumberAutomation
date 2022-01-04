@@ -1,0 +1,226 @@
+Feature: Test data load for ACT/FC Fee
+#Scenario: Load data successfully for ACT Fee from the previous month of ACT Fee
+@StepDef
+@Context
+Scenario:I open ACT/FC Fee screen
+		Given nameValue can be located by css selector "div#nameId > .dx-editor-outlined.dx-show-invalid-badge.dx-textbox.dx-texteditor.dx-texteditor-empty.dx-validator.dx-visibility-change-handler.dx-widget input[role='textbox']"
+		And iSINValue can be located by css selector "div#codeId > .dx-editor-outlined.dx-show-invalid-badge.dx-textbox.dx-texteditor.dx-texteditor-empty.dx-widget input[role='textbox']"
+		And fmIntern can be located by id "fundManagerUnitId"
+		And beoFM can be located by css selector "[data-bind] [role='option']:nth-of-type(1) .dx-list-item-content"
+		And pMUnit can be located by css selector "#portfolioManagerUnitId [aria-haspopup]"
+		And beoPM can be located by css selector "[data-bind] [role='option']:nth-of-type(1) .dx-list-item-content"
+		And domicile can be located by css selector "#fundDomicileId [aria-haspopup]"
+		And domiCH can be located by css selector "[data-bind] [role='option']:nth-of-type(1) .dx-list-item-content"
+		And currency can be located by css selector "#fundCurrencyId [aria-haspopup]"
+		And currencyCHF can be located by css selector "[data-bind] [role='option']:nth-of-type(1) .dx-list-item-content"
+		And launchDate can be located by css selector "#launchDateId .dx-dropdowneditor-icon"
+		And launchValue can be located by css selector "div:nth-of-type(1) > table[role='grid'] > tbody > tr:nth-of-type(1) > td:nth-of-type(5) > span"
+		And closingDate can be located by css selector "#closingDateId .dx-dropdowneditor-icon"
+		And closingValue can be located by css selector ".mat-typography [data-bind] [data-value='2021\/04\/14'] span"
+		And bussinessValue can be located by css selector "#businessLineId .dx-dropdowneditor-icon"
+		And bussinessPam can be located by css selector ".mat-typography [data-bind] [role='option']:nth-of-type(1) .dx-list-item-content"
+		And assetValue can be located by css selector "#assetClassId .dx-dropdowneditor-icon"
+		And assetEquity can be located by css selector ".mat-typography [data-bind] [role='option']:nth-of-type(1) .dx-list-item-content"
+		And clientValue can be located by css selector "#clientTypeId .dx-dropdowneditor-icon"
+		And clientINSTI can be located by css selector ".mat-typography [data-bind] [role='option']:nth-of-type(1) .dx-list-item-content"
+		And productValue can be located by css selector "#productTypeId .dx-dropdowneditor-icon"
+		And productAdmin can be located by css selector ".mat-typography [data-bind] [role='option']:nth-of-type(1) .dx-list-item-content"
+		And categoryValue can be located by css selector "#productCategoryREId .dx-dropdowneditor-icon"
+		And categoryFund can be located by css selector ".mat-typography [data-bind] [role='option']:nth-of-type(1) .dx-list-item-content"
+		And predominantValue can be located by css selector "#predominantRESectorId .dx-dropdowneditor-icon"
+		And predominantHealth can be located by css selector ".mat-typography [data-bind] [role='option']:nth-of-type(1) .dx-list-item-content"
+		And regionValue can be located by css selector "#regionId .dx-dropdowneditor-icon"
+		And regionFrance can be located by css selector ".mat-typography [data-bind] [role='option']:nth-of-type(1) .dx-list-item-content"
+		And pmPersonValue can be located by css selector "div#pm-name > .dx-editor-outlined.dx-show-invalid-badge.dx-textbox.dx-texteditor.dx-texteditor-empty.dx-validator.dx-visibility-change-handler.dx-widget input[role='textbox']"
+		And pmEmailValue can be located by css selector "div#pm-email > .dx-editor-outlined.dx-show-invalid-badge.dx-textbox.dx-texteditor.dx-texteditor-empty.dx-validator.dx-visibility-change-handler.dx-widget input[role='textbox']"
+		And fmPersonValue can be located by css selector "div#fm-name > .dx-editor-outlined.dx-show-invalid-badge.dx-textbox.dx-texteditor.dx-texteditor-empty.dx-validator.dx-visibility-change-handler.dx-widget input[role='textbox']"
+		And fmEmailValue can be located by css selector "div#fm-email > .dx-editor-outlined.dx-show-invalid-badge.dx-textbox.dx-texteditor.dx-texteditor-empty.dx-validator.dx-visibility-change-handler.dx-widget input[role='textbox']"
+		And ruValue can be located by css selector "#ruCodeId [type]"
+		And consolidationValue can be located by id "fundConsolidationCheckbox"
+		And activeValue can be located by id "active-fund"
+		And saveBtn can be located by css selector "dx-button#saveBtn  .dx-button-text"
+		When I navigate to "https://d-we-ipt-01-webapp.azurewebsites.net/fund/create"
+		And I maximize the window
+		And I type "Check load data ACT/FC success 001" in nameValue
+		And I type "SWTest001" in iSINValue
+		And I click fmIntern 
+		And I click beoFM
+		And I click pMUnit
+		And I click beoPM
+		And I click domicile
+		And I click domiCH
+		And I click currency
+		And I click currencyCHF 
+		And I click launchDate
+		And I click launchValue
+		And I click closingDate
+		And I click closingValue
+		And I click bussinessValue
+		And I click bussinessPam
+		And I click assetValue
+		And I click assetEquity
+		And I click clientValue
+		And I click clientINSTI
+		And I click productValue
+		And I click productAdmin
+		And I click categoryValue
+		And I click categoryFund
+		And I click predominantValue
+		And I click predominantHealth
+		And I click regionValue
+		And I click regionFrance
+		And I type "Nguyen Manh Hung" in pmPersonValue
+		And I type "Hung.nguyenmanh@kloon.vn" in pmEmailValue
+		And I type "Brian Bastian" in fmPersonValue
+		And I type "Brian.bastian@kloon.vn" in fmEmailValue
+		And I type "2021" in ruValue
+		And I check consolidationValue
+		And I check activeValue
+		And I wait 5 seconds
+		And I click saveBtn
+		And I wait 5 seconds
+@StepDef
+@Context
+Scenario: ACT Fees in MTP 2027, month 2 existed in database
+		Given yearDrop can be located by css selector "dx-select-box#dataYear > .dx-dropdowneditor-input-wrapper.dx-selectbox-container div[role='button']  .dx-dropdowneditor-icon"
+		And yearCreate can be located by css selector "div:nth-of-type(9) > .dx-item-content.dx-list-item-content"
+		And monthDrop can be located by css selector "dx-select-box#dataMonth > .dx-dropdowneditor-input-wrapper.dx-selectbox-container div[role='button']  .dx-dropdowneditor-icon"
+		And monthCreate can be located by css selector "[data-bind] [role='option']:nth-of-type(3) .dx-list-item-content"
+		And actDrop can be located by css selector "dx-select-box#actFc > .dx-dropdowneditor-input-wrapper.dx-selectbox-container div[role='button']  .dx-dropdowneditor-icon"
+		And actValue can be located by css selector "[data-bind] [role='option']:nth-of-type(1) .dx-list-item-content"
+		And fundCreate can be located by css selector "dx-drop-down-box#fundId > .dx-dropdowneditor-input-wrapper div[role='button']  .dx-dropdowneditor-icon"
+		And srFundCreate can be located by css selector "td:nth-of-type(1) input[role='textbox']"
+		And resultFund can be located by css selector "div:nth-of-type(6) table[role='presentation'] > tbody[role='presentation'] > tr[role='row'] > td:nth-of-type(1)"
+		And saveBtnCreate can be located by css selector "div#save-button  .dx-button-text"
+		When I navigate to "https://d-we-ipt-01-webapp.azurewebsites.net/forecast-fees/create"
+		And I maximize the window
+		And I wait 5 seconds
+		And I click yearDrop
+		And I click yearCreate
+		And I click monthDrop
+		And I click monthCreate
+		And I click actDrop
+		And I click actValue
+		And I click fundCreate
+		And I click srFundCreate
+		And I type "SWTest001" in srFundCreate
+		And I wait 5 seconds
+		And I click resultFund
+		And I wait 3 seconds
+		And I click saveBtnCreate
+@StepDef
+@Action 
+Scenario: I click load data button
+		Given yearExpDrop can be located by css selector "div#year-selection > .dx-dropdowneditor-input-wrapper.dx-selectbox-container div[role='button']  .dx-dropdowneditor-icon"
+		And yearExp can be located by css selector "div:nth-of-type(9) > .dx-item-content.dx-list-item-content"
+		And monthExpDrop can be located by css selector "dx-select-box#\ month-selection > .dx-dropdowneditor-input-wrapper.dx-selectbox-container div[role='button']  .dx-dropdowneditor-icon"
+		And monthExp can be located by css selector "[data-bind] [role='option']:nth-of-type(4) .dx-list-item-content"
+		And loadBtn1 can be located by css selector "div#load-button  .dx-button-text"	
+		When I navigate to "https://d-we-ipt-01-webapp.azurewebsites.net/forecast-fees/load-data"
+		And I maximize the window
+		And I wait 3 seconds
+		And I click yearExpDrop
+		And I click yearExp
+		And I click monthExpDrop
+		And I wait 3 seconds
+		And I click monthExp
+		And I click loadBtn1
+		And I wait 3 seconds
+@StepDef
+@Action 
+Scenario: I select MTP 2027, month 2, ACT to load data
+		Given yearLoadDrop can be located by css selector "div#mtp-selection > .dx-dropdowneditor-input-wrapper.dx-selectbox-container div[role='button']  .dx-dropdowneditor-icon"
+		And 2027Year can be located by css selector "[data-bind] [role='option']:nth-of-type(9) .dx-list-item-content"
+		And monthLoadDrop can be located by css selector "div#month-selection > .dx-dropdowneditor-input-wrapper.dx-selectbox-container div[role='button']  .dx-dropdowneditor-icon"
+		And 5month can be located by css selector "[data-bind] [role='option']:nth-of-type(3) .dx-list-item-content"
+		And selectAll can be located by css selector "div[role='presentation'] > table[role='presentation'] > tbody > tr:nth-of-type(1) > td:nth-of-type(1) .dx-checkbox-icon"
+		And saveSelect can be located by css selector "div#save-button  .dx-button-text"
+		When I click yearLoadDrop
+		And I click 2027Year
+		And I click monthLoadDrop
+		And I click 5month
+		And I click selectAll
+		And I click saveSelect
+		And I wait 5 seconds
+@StepDef
+@Action 
+Scenario: I input valid field
+		Given clickText can be located by css selector "[role] [role='presentation']:nth-of-type(6) [aria-describedby='dx-col-24']"
+		And text1 can be located by css selector "[role] [role='presentation']:nth-of-type(6) .dx-texteditor-input"
+		When I click clickText
+		And I type "15" in text1
+		And I wait 2 seconds
+@StepDef
+@Action 
+Scenario: I click save icon
+		Given saveLoad can be located by css selector ".dx-icon.dx-icon-save"
+		When I click saveLoad
+@StepDef
+@Assertion
+Scenario: New ACT Fee in MTP 2027, month 4 is saved successful
+		Given btn can be located by css selector "div:nth-of-type(1) > .dx-item-content.dx-template-wrapper.dx-toolbar-item-content > .dx-dropdownbutton.dx-dropdownbutton-has-arrow.dx-widget > div[role='group']  div[role='button']  .dx-button-text"
+		When btn should be displayed
+#Scenario: Load data successfully for FC Fee from the current month of ACT Fee
+@StepDef
+@Context
+Scenario: I open ACT/FC Fee screen 1
+		Given I start a new browser
+		When I navigate to "https://d-we-ipt-01-webapp.azurewebsites.net/forecast-fees/load-data"
+@StepDef
+@Action
+Scenario: I click load data button 1
+		Given yearExpDrop can be located by css selector "div#year-selection > .dx-dropdowneditor-input-wrapper.dx-selectbox-container div[role='button']  .dx-dropdowneditor-icon"
+		And yearExp can be located by css selector "div:nth-of-type(9) > .dx-item-content.dx-list-item-content"
+		And monthExpDrop can be located by css selector "dx-select-box#\ month-selection > .dx-dropdowneditor-input-wrapper.dx-selectbox-container div[role='button']  .dx-dropdowneditor-icon"
+		And monthExp can be located by css selector "[data-bind] [role='option']:nth-of-type(3) .dx-list-item-content"
+		And actDrop1 can be located by css selector "[displayexpr] .dx-dropdowneditor-icon"
+		And foreC can be located by css selector "[data-bind] [role='option']:nth-of-type(2) .dx-list-item-content"
+		And loadBtn1 can be located by css selector "div#load-button  .dx-button-text"
+		When I navigate to "https://d-we-ipt-01-webapp.azurewebsites.net/forecast-fees/load-data"
+		And I maximize the window
+		And I wait 3 seconds
+		And I click yearExpDrop
+		And I click yearExp
+		And I click monthExpDrop
+		And I wait 3 seconds
+		And I click monthExp
+		And I click actDrop1
+		And I wait 2 seconds
+		And I click foreC
+		And I click loadBtn1
+		And I wait 3 seconds
+@StepDef
+@Action
+Scenario: I select MTP 2027, month 2, ACT to load data 1
+		Given yearLoadDrop1 can be located by css selector "div#mtp-selection > .dx-dropdowneditor-input-wrapper.dx-selectbox-container div[role='button']  .dx-dropdowneditor-icon"
+		And 2027Year1 can be located by css selector "[data-bind] [role='option']:nth-of-type(9) .dx-list-item-content"
+		And monthLoadDrop1 can be located by css selector "div#month-selection > .dx-dropdowneditor-input-wrapper.dx-selectbox-container div[role='button']  .dx-dropdowneditor-icon"
+		And 5month1 can be located by css selector "[data-bind] [role='option']:nth-of-type(3) .dx-list-item-content"
+		And selectAll1 can be located by css selector "div[role='presentation'] > table[role='presentation'] > tbody > tr:nth-of-type(1) > td:nth-of-type(1) .dx-checkbox-icon"
+		And saveSelect1 can be located by css selector "div#save-button  .dx-button-text"
+		When I click yearLoadDrop1
+		And I click 2027Year1
+		And I click monthLoadDrop1
+		And I click 5month1
+		And I click selectAll1
+		And I click saveSelect1
+		And I wait 5 seconds
+@StepDef
+@Action 
+Scenario: I input valid field 1
+		Given clickText1 can be located by css selector "[role] [role='presentation']:nth-of-type(6) [aria-describedby='dx-col-24']"
+		And text11 can be located by css selector "[role] [role='presentation']:nth-of-type(6) .dx-texteditor-input"
+		When I click clickText1
+		And I type "18" in text11
+		And I wait 2 seconds
+@StepDef
+@Action 
+Scenario: I click save icon 1
+		Given saveLoad1 can be located by css selector ".dx-icon.dx-icon-save"
+		When I click saveLoad1
+		And I wait 3 seconds
+@StepDef
+@Assertion
+Scenario: New ACT Fee in MTP 2027, month 6 is saved successful 1
+		Given btn2 can be located by css selector "div:nth-of-type(1) > .dx-item-content.dx-template-wrapper.dx-toolbar-item-content > .dx-dropdownbutton.dx-dropdownbutton-has-arrow.dx-widget > div[role='group']  div[role='button']  .dx-button-text"
+		When btn2 should be displayed

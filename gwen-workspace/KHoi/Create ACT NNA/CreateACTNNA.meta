@@ -1,0 +1,40 @@
+# The ACT NNAs for Year 2021, month 4 exist in the DB
+		Given yearDrop can be located by css selector "dx-select-box#dataYear > .dx-dropdowneditor-input-wrapper.dx-selectbox-container div[role='button']  .dx-dropdowneditor-icon"
+		And yearCreate can be located by css selector "div:nth-of-type(3) > .dx-item-content.dx-list-item-content"
+		And monthDrop can be located by css selector "dx-select-box#dataMonth > .dx-dropdowneditor-input-wrapper.dx-selectbox-container div[role='button']  .dx-dropdowneditor-icon"
+		And monthCreate can be located by css selector "[data-bind] [role='option']:nth-of-type(4) .dx-list-item-content"
+		And actDrop3 can be located by css selector "dx-select-box#actFc > .dx-dropdowneditor-input-wrapper.dx-selectbox-container div[role='button']  .dx-dropdowneditor-icon"
+		And actValue can be located by css selector "[data-bind] [role='option']:nth-of-type(1) .dx-list-item-content"
+		And fundCreate3 can be located by css selector "dx-drop-down-box#fundId > .dx-dropdowneditor-input-wrapper div[role='button']  .dx-dropdowneditor-icon"
+		And srFundCreate3 can be located by css selector "td:nth-of-type(1) input[role='textbox']"
+		And resultFund3 can be located by css selector ".dx-popup-content  dx-data-grid[role='presentation'] > div[role='grid'] > div:nth-of-type(6) table[role='presentation'] > tbody[role='presentation'] > tr[role='row'] > td:nth-of-type(1)"
+		And assetLDrop can be located by css selector "dx-select-box#assetLocationId > .dx-dropdowneditor-input-wrapper.dx-selectbox-container div[role='button']  .dx-dropdowneditor-icon"
+		And assetLValue can be located by css selector "[data-bind] [role='option']:nth-of-type(1) .dx-list-item-content"
+		And assetMDrop can be located by css selector "dx-select-box#assetManagerUnit > .dx-dropdowneditor-input-wrapper.dx-selectbox-container div[role='button']  .dx-dropdowneditor-icon"
+		And assetMValue can be located by css selector "[data-bind] [role='option']:nth-of-type(1) .dx-list-item-content"
+		And auMText can be located by css selector "div#aum input[role='spinbutton']"
+		And saveBtnCreate3 can be located by css selector "div#save-button  .dx-button-text"
+		When I navigate to "https://d-we-ipt-01-webapp.azurewebsites.net/actual-forecast/create"
+		And I maximize the window
+		And I wait 5 seconds
+		And I click yearDrop
+		And I click yearCreate
+		And I click monthDrop
+		And I wait 2 seconds
+		And I click monthCreate
+		And I click actDrop3
+		And I click actValue
+		And I click fundCreate3
+		And I click srFundCreate3
+		And I type "AuMNNA001" in srFundCreate3
+		And I wait 5 seconds
+		And I click resultFund3
+		And I click assetLDrop
+		And I click assetLValue
+		And I click assetMDrop
+		And I click assetMValue
+		And I click auMText
+		And I type "20.04" in auMText
+		And I wait 3 seconds
+		And I click saveBtnCreate3
+		And I wait 3 seconds

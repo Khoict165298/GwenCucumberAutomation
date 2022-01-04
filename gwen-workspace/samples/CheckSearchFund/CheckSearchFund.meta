@@ -1,0 +1,250 @@
+
+
+ Feature: Check search Fund
+
+#Scenario: Check search Fund
+
+@StepDef
+@Context
+Scenario: I open fund satatic screen 
+		Given I start a new browser
+		When I navigate to "https://d-we-ipt-01-webapp.azurewebsites.net/fund/create"
+		And I maximize the window
+@StepDef
+@Context
+Scenario: Fund exists in the DB
+		Given nameValue can be located by css selector "div#nameId > .dx-editor-outlined.dx-show-invalid-badge.dx-textbox.dx-texteditor.dx-texteditor-empty.dx-validator.dx-visibility-change-handler.dx-widget input[role='textbox']"
+		And iSINValue can be located by css selector "div#codeId > .dx-editor-outlined.dx-show-invalid-badge.dx-textbox.dx-texteditor.dx-texteditor-empty.dx-widget input[role='textbox']"
+		And fmIntern can be located by id "fundManagerUnitId"
+		And beoFM can be located by css selector "[data-bind] [role='option']:nth-of-type(1) .dx-list-item-content"
+		And pMUnit can be located by css selector "#portfolioManagerUnitId [aria-haspopup]"
+		And beoPM can be located by css selector "[data-bind] [role='option']:nth-of-type(1) .dx-list-item-content"
+		And domicile can be located by css selector "#fundDomicileId [aria-haspopup]"
+		And domiCH can be located by css selector "[data-bind] [role='option']:nth-of-type(1) .dx-list-item-content"
+		And currency can be located by css selector "#fundCurrencyId [aria-haspopup]"
+		And currencyCHF can be located by css selector "[data-bind] [role='option']:nth-of-type(1) .dx-list-item-content"
+		And launchDate can be located by css selector "#launchDateId .dx-dropdowneditor-icon"
+		And launchValue can be located by css selector "div:nth-of-type(1) > table[role='grid'] > tbody > tr:nth-of-type(1) > td:nth-of-type(5) > span"
+		And closingDate can be located by css selector "#closingDateId .dx-dropdowneditor-icon"
+		And closingValue can be located by css selector ".mat-typography [data-bind] [data-value='2021\/04\/14'] span"
+		And bussinessValue can be located by css selector "#businessLineId .dx-dropdowneditor-icon"
+		And bussinessPam can be located by css selector ".mat-typography [data-bind] [role='option']:nth-of-type(1) .dx-list-item-content"
+		And assetValue can be located by css selector "#assetClassId .dx-dropdowneditor-icon"
+		And assetEquity can be located by css selector ".mat-typography [data-bind] [role='option']:nth-of-type(1) .dx-list-item-content"
+		And clientValue can be located by css selector "#clientTypeId .dx-dropdowneditor-icon"
+		And clientINSTI can be located by css selector ".mat-typography [data-bind] [role='option']:nth-of-type(1) .dx-list-item-content"
+		And productValue can be located by css selector "#productTypeId .dx-dropdowneditor-icon"
+		And productAdmin can be located by css selector ".mat-typography [data-bind] [role='option']:nth-of-type(1) .dx-list-item-content"
+		And categoryValue can be located by css selector "#productCategoryREId .dx-dropdowneditor-icon"
+		And categoryFund can be located by css selector ".mat-typography [data-bind] [role='option']:nth-of-type(1) .dx-list-item-content"
+		And predominantValue can be located by css selector "#predominantRESectorId .dx-dropdowneditor-icon"
+		And predominantHealth can be located by css selector ".mat-typography [data-bind] [role='option']:nth-of-type(1) .dx-list-item-content"
+		And regionValue can be located by css selector "#regionId .dx-dropdowneditor-icon"
+		And regionFrance can be located by css selector ".mat-typography [data-bind] [role='option']:nth-of-type(1) .dx-list-item-content"
+		And pmPersonValue can be located by css selector "div#pm-name > .dx-editor-outlined.dx-show-invalid-badge.dx-textbox.dx-texteditor.dx-texteditor-empty.dx-validator.dx-visibility-change-handler.dx-widget input[role='textbox']"
+		And pmEmailValue can be located by css selector "div#pm-email > .dx-editor-outlined.dx-show-invalid-badge.dx-textbox.dx-texteditor.dx-texteditor-empty.dx-validator.dx-visibility-change-handler.dx-widget input[role='textbox']"
+		And fmPersonValue can be located by css selector "div#fm-name > .dx-editor-outlined.dx-show-invalid-badge.dx-textbox.dx-texteditor.dx-texteditor-empty.dx-validator.dx-visibility-change-handler.dx-widget input[role='textbox']"
+		And fmEmailValue can be located by css selector "div#fm-email > .dx-editor-outlined.dx-show-invalid-badge.dx-textbox.dx-texteditor.dx-texteditor-empty.dx-validator.dx-visibility-change-handler.dx-widget input[role='textbox']"
+		And ruValue can be located by css selector "#ruCodeId [type]"
+		And consolidationValue can be located by id "fundConsolidationCheckbox"
+		And activeValue can be located by id "active-fund"
+		And saveBtn can be located by css selector "dx-button#saveBtn  .dx-button-text"
+		When I enter "SW Test 0604" in nameValue
+		And I enter "06042021Kloon" in iSINValue
+		And I click fmIntern 
+		And I click beoFM
+		And I click pMUnit
+		And I click beoPM
+		And I click domicile
+		And I click domiCH
+		And I click currency
+		And I click currencyCHF 
+		And I click launchDate
+		And I click launchValue
+		And I click closingDate
+		And I click closingValue
+		And I click bussinessValue
+		And I click bussinessPam
+		And I click assetValue
+		And I click assetEquity
+		And I click clientValue
+		And I click clientINSTI
+		And I click productValue
+		And I click productAdmin
+		And I click categoryValue
+		And I click categoryFund
+		And I click predominantValue
+		And I click predominantHealth
+		And I click regionValue
+		And I click regionFrance
+		And I type "Nguyen Manh Hung" in pmPersonValue
+		And I type "Hung.nguyenmanh@kloon.vn" in pmEmailValue
+		And I type "Brian Bastian" in fmPersonValue
+		And I type "Brian.bastian@kloon.vn" in fmEmailValue
+		And I type "2021" in ruValue
+		And I check consolidationValue
+		And I check activeValue
+#		And I click saveBtn
+@StepDef
+@Action
+Scenario: I search Fund just create in TPAM screen
+		Given searchTPAMBox can be located by css selector "div:nth-of-type(1) > table[role='presentation'] > tbody > tr:nth-of-type(3) > td:nth-of-type(3) input[role='textbox']"
+		And editTPAMBtn can be located by css selector ".dx-datagrid-content.dx-datagrid-content-fixed > table[role='presentation']  tr[role='row']  a[title='Edit']"
+		And fundMU can be located by css selector "td:nth-of-type(5) input[role='combobox']"
+		And resultTPAM can be located by css selector "div#nameId > .dx-editor-outlined.dx-show-invalid-badge.dx-textbox.dx-texteditor.dx-validator.dx-visibility-change-handler.dx-widget input[role='textbox']"
+		When I navigate to "https://d-we-ipt-01-webapp.azurewebsites.net/fund/index"
+		And I type "SW Test 0604" in searchTPAMBox
+		And I click fundMU
+		And I click editTPAMBtn
+		And I click resultTPAM
+		And resultTPAM should be "SW Test 0604"
+@StepDef
+@Action
+Scenario: I search Fund with data not exist in the DB at TPAM screen
+		Given searchTPAMBox1 can be located by css selector "div:nth-of-type(1) > table[role='presentation'] > tbody > tr:nth-of-type(3) > td:nth-of-type(3) input[role='textbox']"
+		And takeTimeTPAM can be located by css selector "td:nth-of-type(4) input[role='textbox']"
+		And editIconTPAM can be located by css selector ".dx-datagrid-content.dx-datagrid-content-fixed > table[role='presentation']  tr[role='row']  a[title='Edit']"
+		When I navigate to "https://d-we-ipt-01-webapp.azurewebsites.net/fund/index"
+		And I type "SW IPT 122" in searchTPAMBox1
+		And I click takeTimeTPAM
+		And editIconTPAM should not be displayed
+@StepDef
+@Action
+Scenario: I search Fund in ActualFees screen
+		Given yearActualFees can be located by css selector "div#mtp-selection > .dx-dropdowneditor-input-wrapper.dx-selectbox-container input[role='combobox']"
+		And 2020ActualFees can be located by css selector "[data-bind] [role='option']:nth-of-type(1) .dx-list-item-content"
+		And monthActualFees can be located by css selector "div#month-selection > .dx-dropdowneditor-input-wrapper.dx-selectbox-container div[role='button']  .dx-dropdowneditor-icon"
+		And month2ActualFees can be located by css selector "[data-bind] [role='option']:nth-of-type(2) .dx-list-item-content"
+		And searchActualFees can be located by css selector "input[role='textbox']"
+		And editActualFees can be located by css selector ".dx-datagrid-content.dx-datagrid-content-fixed > table[role='presentation']  tr[role='row'] > td:nth-of-type(2) > a[title='Edit']"
+		And resultActualFees can be located by css selector "dx-drop-down-box#fundId > .dx-dropdowneditor-input-wrapper input[role='combobox']"
+		When I navigate to "https://d-we-ipt-01-webapp.azurewebsites.net/forecast-fees/index"
+		And I click yearActualFees
+		And I click 2020ActualFees
+		And I click monthActualFees
+		And I click month2ActualFees
+		And I click searchActualFees
+		And I type "SW Test 0604" in searchActualFees
+		And I click editActualFees
+		And I click resultActualFees
+		And resultActualFees should be "SW Test 0604"
+		
+@StepDef
+@Action
+Scenario: I search Fund with data not exist in the DB at Fees screen
+		Given searchFeesBox1 can be located by css selector "input[role='textbox']"
+		And editIconFee can be located by css selector "".dx-datagrid-content.dx-datagrid-content-fixed > table[role='presentation']  tr[role='row'] > td:nth-of-type(2) > a[title='Edit']"
+		When I navigate to "https://d-we-ipt-01-webapp.azurewebsites.net/forecast-fees/index"
+		And I click searchFeesBox1
+		And I type "SW IPT 122" in searchFeesBox1
+		And editIconFee should not be displayed
+@StepDef
+@Action
+Scenario: I search Fund in AuM/NNA screen
+		Given yearAuM can be located by css selector "div#year-selection > .dx-dropdowneditor-input-wrapper.dx-selectbox-container div[role='button']  .dx-dropdowneditor-icon"
+		And 2020AuM can be located by css selector "div:nth-of-type(1) > .dx-item-content.dx-list-item-content"
+		And monthAuM can be located by css selector "div#month-selection > .dx-dropdowneditor-input-wrapper.dx-selectbox-container div[role='button']  .dx-dropdowneditor-icon"
+		And month4AuM can be located by css selector "[data-bind] [role='option']:nth-of-type(4) .dx-list-item-content"
+		And searchAuM can be located by css selector "div:nth-of-type(1) > table[role='presentation'] > tbody > tr:nth-of-type(2) > td:nth-of-type(2) input[role='textbox']"
+		And resultAuM can be located by css selector "td:nth-of-type(1) > .dx-datagrid-group-closed"
+		And checkAuM can be located by css selector "app-detail .dx-datagrid-content-fixed [title='Edit']"
+		When I navigate to "https://d-we-ipt-01-webapp.azurewebsites.net/actual-forecast/index"
+		And I click yearAuM
+		And I click 2020AuM
+		And I click monthAuM
+		And I click month4AuM
+		And I click searchAuM
+		And I type "SW Test 0604" in searchAuM
+		And I click resultAuM
+		And checkAuM should be displayed
+@StepDef
+@Action
+Scenario: I search Fund with data not exist in the DB at AuM/NNA screen
+		Given yearAuM1 can be located by css selector "div#year-selection > .dx-dropdowneditor-input-wrapper.dx-selectbox-container div[role='button']  .dx-dropdowneditor-icon"
+		And 2020AuM1 can be located by css selector "div:nth-of-type(1) > .dx-item-content.dx-list-item-content"
+		And monthAuM1 can be located by css selector "div#month-selection > .dx-dropdowneditor-input-wrapper.dx-selectbox-container div[role='button']  .dx-dropdowneditor-icon"
+		And month4AuM1 can be located by css selector "[data-bind] [role='option']:nth-of-type(4) .dx-list-item-content"
+		And searchAuM1 can be located by css selector "div:nth-of-type(1) > table[role='presentation'] > tbody > tr:nth-of-type(2) > td:nth-of-type(2) input[role='textbox']"
+		And takeTimeAuM can be located by css selector "td:nth-of-type(3) input[role='spinbutton']"
+		And resultAuM1 can be located by css selector "tr:nth-of-type(1) > td:nth-of-type(1) > .dx-datagrid-group-closed"
+		When I navigate to "https://d-we-ipt-01-webapp.azurewebsites.net/actual-forecast/index"
+		And I click yearAuM1
+		And I click 2020AuM1
+		And I click monthAuM1
+		And I click month4AuM1
+		And I click searchAuM1
+		And I type "SW IPT 122" in searchAuM1
+		And I click takeTimeAuM
+		And resultAuM1 should not be displayed
+		
+@StepDef
+@Action
+Scenario: I search Fund just create in Allocation screen
+		Given searchAllocation can be located by css selector "div:nth-of-type(1) > table[role='presentation'] > tbody > tr:nth-of-type(3) > td:nth-of-type(3) input[role='textbox']"
+		And editAllocationBtn can be located by css selector ".dx-datagrid-content.dx-datagrid-content-fixed > table[role='presentation']  tr[role='row'] > td:nth-of-type(2) > a[title='Edit']"
+		And takeTime can be located by css selector "td:nth-of-type(4) input[role='spinbutton']"
+		And resultAllocation can be located by css selector "dx-drop-down-box#fundId > .dx-dropdowneditor-input-wrapper input[role='combobox']"
+		When I navigate to "https://d-we-ipt-01-webapp.azurewebsites.net/allocation/index"
+		And I click searchAllocation
+		And I type "SW Test 0604" in searchAllocation
+		And I click takeTime
+		And I click editAllocationBtn
+		And resultAllocation should be "SW Test 0604" 
+@StepDef
+@Action
+Scenario: I search Fund with data not exist in the DB at Allocation screen
+		Given searchAllocation1 can be located by css selector "div:nth-of-type(1) > table[role='presentation'] > tbody > tr:nth-of-type(3) > td:nth-of-type(3) input[role='textbox']"
+		And takeTimeAll can be located by css selector "td:nth-of-type(4) input[role='spinbutton']"
+		And editAllocationBtn1 can be located by css selector ".dx-datagrid-content.dx-datagrid-content-fixed > table[role='presentation']  tr[role='row'] > td:nth-of-type(2) > a[title='Edit']"
+		When I navigate to "https://d-we-ipt-01-webapp.azurewebsites.net/allocation/index"
+		And I click searchAllocation1
+		And I type "SW IPT 122" in searchAllocation1
+		And I click takeTimeAll
+		And editAllocationBtn1 should not be displayed
+@StepDef
+@Action
+Scenario: I search Fund just create in NNA screen
+		Given searchNNA can be located by css selector "div:nth-of-type(1) > table[role='presentation'] > tbody > tr:nth-of-type(4) > td:nth-of-type(2) input[role='textbox']"
+		And resultNNA can be located by css selector "tr:nth-of-type(1) > td:nth-of-type(1) > .dx-datagrid-group-closed"
+		And takeTime1 can be located by css selector "div:nth-of-type(1) > table[role='presentation'] > tbody[role='presentation'] > tr:nth-of-type(4) > td:nth-of-type(3) input[role='combobox']"
+		And editNNABtn can be located by css ".dx-datagrid-content.dx-datagrid-content-fixed > table[role='presentation'] > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > a[title='Edit']"
+		When I navigate to "https://d-we-ipt-01-webapp.azurewebsites.net/budget/index"
+		And I click searchNNA
+		And I type "SW Test 0604" in searchNNA
+		And I click takeTime1
+		And I click resultNNA
+		And editNNABtn should be displayed
+@StepDef
+@Action
+Scenario: I search Fund with data not exist in the DB at NNA screen
+		Given searchNNA1 can be located by css selector "div:nth-of-type(1) > table[role='presentation'] > tbody > tr:nth-of-type(4) > td:nth-of-type(2) input[role='textbox']"
+		And editNNABtn1 can be located by css selector ".dx-datagrid-content.dx-datagrid-content-fixed > table[role='presentation'] > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > a[title='Edit']"
+		When I navigate to "https://d-we-ipt-01-webapp.azurewebsites.net/budget/index"
+		And I click searchNNA1
+		And I type "SW IPT 122" in searchNNA1
+		And editNNABtn1 should not be displayed
+
+
+@StepDef
+@Action
+Scenario: I search Fund with data not exist in the DB at FeeAbsolute screen
+		Given searchFeeAb1 can be located by css selector "div:nth-of-type(1) > table[role='presentation'] > tbody > tr:nth-of-type(2) > td:nth-of-type(3) input[role='textbox']"
+		And editFeeAb1 can be located by css selector ".dx-datagrid-content.dx-datagrid-content-fixed > table[role='presentation']  tr[role='row'] > td:nth-of-type(2) > a[title='Edit']" 
+		When I navigate to "https://d-we-ipt-01-webapp.azurewebsites.net/fee-absolute/index"
+		And I click searchFeeAb1
+		And I type "SW IPT 12" in searchFeeAb1
+		And editFeeAb1 should not be displayed
+@StepDef
+@Assertion 
+Scenario: I search Fund in FeeAbsolute screen
+		Given searchFeeAb can be located by css selector "div:nth-of-type(1) > table[role='presentation'] > tbody > tr:nth-of-type(2) > td:nth-of-type(3) input[role='textbox']"
+		And takeTime2 can be located by css selector "div:nth-of-type(1) > table[role='presentation'] > tbody[role='presentation'] > tr:nth-of-type(2) > td:nth-of-type(4) input[role='combobox']"
+		And editFeeAb can be located by css selector ".dx-datagrid-content.dx-datagrid-content-fixed > table[role='presentation']  tr[role='row'] > td:nth-of-type(2) > a[title='Edit']" 
+		And checkRltAb can be located by css selector "dx-drop-down-box#fundId > .dx-dropdowneditor-input-wrapper input[role='combobox']"
+		When I navigate to "https://d-we-ipt-01-webapp.azurewebsites.net/fee-absolute/index"
+		And I click searchFeeAb
+		And I type "SW Test 0604" in searchFeeAb
+		And I click takeTime2
+		And I click editFeeAb
+		And checkRltAb should be "SW Test 0604"
+		
